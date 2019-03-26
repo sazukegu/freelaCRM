@@ -1,2 +1,2 @@
 # freelaCRM
-Sistema de gestão completo para freelancers.
+Sistema de gestão completo para freelancers...
