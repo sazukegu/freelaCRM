@@ -1,8 +1,4 @@
 # freelaCRM
-Sistema de gestão completo para freelancers...
-
-
-# freelaCRM
 
 Main Goals:
  * Dashboard.
