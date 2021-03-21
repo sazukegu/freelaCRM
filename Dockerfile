@@ -1,6 +1,7 @@
 FROM ruby:2.7.2
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client npm
 RUN mkdir /myapp
+RUN npm install -g yarn
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
