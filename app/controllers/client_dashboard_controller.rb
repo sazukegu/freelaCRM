@@ -1,0 +1,2 @@
+class ClientDashboardController < ApplicationController
+end
