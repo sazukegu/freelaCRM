@@ -30,6 +30,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem "haml"
 gem "haml-lint", require: false
+gem 'materialize-sass', '~> 1.0.0'
+gem 'material_icons'
+
+# Authentication
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
