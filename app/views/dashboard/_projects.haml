@@ -1,0 +1,15 @@
+.carousel.carousel-slider.center
+  .carousel-fixed-item.center
+  - projects.each do |project|
+    .carousel-item.red.white-text
+      %h2
+        = project.name
+      %p.white-text
+        = project.client.email
+      %a.btn.waves-effect.white.grey-text.darken-text-2
+        Tasks
+      %a.btn.waves-effect.white.grey-text.darken-text-2
+        Tickets
+      = link_to project_announcements_path(project_id: project) do
+        .btn.waves-effect.white.grey-text.darken-text-2
+          Announcements

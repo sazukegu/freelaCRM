@@ -1,2 +1,0 @@
-class FreelancerDashboardController < ApplicationController
-end

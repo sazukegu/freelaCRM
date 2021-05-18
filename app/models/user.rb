@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :tickets, dependent: :destroy
   has_many :quotations, dependent: :destroy
-  has_many :projects, dependent: :destroy
+  has_many :projects_as_freelancer, class_name: "Project", foreign_key: "freelancer_id"
+  has_many :projects_as_client, class_name: "Project", foreign_key: "client_id"
 end

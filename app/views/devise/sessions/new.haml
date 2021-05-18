@@ -1,0 +1,31 @@
+.row
+  .col.s6
+    %h4
+      Freela is OpenSource!
+    %p
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Ut nec varius libero, eu facilisis enim.
+      Ut imperdiet felis et tempor dapibus. Curabitur ornare elit sapien, id efficitur neque luctus id. 
+      Pellentesque ut mauris purus. Nunc eu est venenatis, lacinia urna nec, imperdiet sem. 
+      Aliquam vel enim a mauris elementum placerat. Curabitur efficitur ac nisl hendrerit semper.
+    %p
+      Vivamus at risus augue. Vivamus pharetra pulvinar ante vulputate condimentum. Pellentesque posuere sed lorem at dignissim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+  .col.s6
+    .card.hoverable.s10
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .card-content
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+          .field
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "current-password"
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .actions
+            = f.submit "Log in"
+      = render "devise/shared/links"

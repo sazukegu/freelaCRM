@@ -25,13 +25,16 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Yanking mimemagic
+gem 'mimemagic', "~> 0.3.9"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem "haml"
 gem "haml-lint", require: false
-gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
+gem "simple_form"
 
 # Authentication
 gem 'devise'
@@ -41,6 +44,7 @@ gem "rolify"
 gem 'cancancan'
 
 gem "awesome_print", require: "ap"
+gem 'decent_exposure', '~> 3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

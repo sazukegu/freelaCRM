@@ -1,0 +1,12 @@
+= simple_form_for [:project, @announcement] do |f|
+  %h3
+    = t("general")
+
+  .row
+    .col.s6
+      = f.input :title, label: false
+  .row
+    .col.s6
+      = f.input :body
+
+  = f.button :submit
