@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
-    if @user.update(user_params)
+    if @user&.update(user_params)
       flash[:success] = "User has been updated!"
       redirect_to user_path(current_user)
     else
@@ -15,9 +15,9 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   private
-  
+
   def handle_user_profile
     @user = User.find_by(username: params[:username])
     not_found unless @user.present?

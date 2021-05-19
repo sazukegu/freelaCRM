@@ -1,14 +1,14 @@
 - if current_user.has_role? :freelancer
   = link_to new_project_announcement_path do
     %i.material-icons add
-- project.announcements.each do |announcement|
+- project&.announcements&.each do |announcement|
   .row
     .col.s6.m5
       .card-panel.teal
         %span.white-text
           = announcement.body
     .col.s1
-    - if current_user.has_role? :freelancer
+    - if current_user&.has_role? :freelancer
       = link_to project_announcement_path(project, announcement), method: :delete do
         %i.material-icons delete
 

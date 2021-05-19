@@ -4,10 +4,10 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-      user ||= User.new # guest user (not logged in)
+    user ||= User.new # guest user (not logged in)
 
-      freelancer(user) if user.has_role?(:freelancer)
-      client(user) if user.has_role?(:client)
+    freelancer(user) if user.has_role?(:freelancer)
+    client(user) if user.has_role?(:client)
   end
 
   def freelancer(user)
@@ -24,10 +24,9 @@ class Ability
     cannot :manage, Announcement
     cannot :manage, Task
     can :create, Ticket
+    can %i[read archive], Ticket, project: { client: { id: user.id } }
     can :read, Project, client_id: user.id
     can :read, Announcement, project: { client: { id: user.id } }
     can :read, Task, project: { client: { id: user.id } }
-    can :read, Ticket, project: { client: { id: user.id } }
   end
 end
-

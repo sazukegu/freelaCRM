@@ -1,7 +1,7 @@
 - if current_user.has_role? :client
   = link_to new_project_ticket_path do
     %i.material-icons add
-- @tickets.each do |ticket|
+- @tickets&.each do |ticket|
   .row
     .col.s6.m5
       .card-panel.teal

@@ -5,6 +5,6 @@ class DashboardController < ApplicationController
   end
 
   def projects
-    project_list = current_user.has_role?(:freelancer) ? current_user.projects_as_freelancer : current_user.projects_as_client
+    current_user&.has_role?(:freelancer) ? current_user&.projects_as_freelancer : current_user&.projects_as_client
   end
 end

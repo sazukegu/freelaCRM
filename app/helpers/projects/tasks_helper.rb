@@ -1,2 +1,4 @@
-module Projects::TasksHelper
+module Projects
+  module TasksHelper
+  end
 end
