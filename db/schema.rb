@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_215105) do
+ActiveRecord::Schema.define(version: 2021_05_18_235006) do
 
   create_table "announcements", force: :cascade do |t|
     t.string "title", default: "", null: false
@@ -55,6 +55,9 @@ ActiveRecord::Schema.define(version: 2021_05_17_215105) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
     t.text "content"
+    t.integer "project_id", null: false
+    t.boolean "archived"
+    t.index ["project_id"], name: "index_tickets_on_project_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,4 +99,5 @@ ActiveRecord::Schema.define(version: 2021_05_17_215105) do
   end
 
   add_foreign_key "tasks", "projects"
+  add_foreign_key "tickets", "projects"
 end

@@ -9,21 +9,77 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
   %body
-    %nav
-      .nav-wrapper
-        .brand-logo
-          = link_to 'Logo', root_path
-        %ul#nav-mobile.right.hide-on-med-and-down
+    %nav.purple.lighten-1
+      .container
+        .nav-wrapper
           - if user_signed_in?
-            = link_to 'Logout', destroy_user_session_path, method: :delete
-          - else
-            %li
-              = link_to 'Login', new_user_session_path
-            %li
-              = link_to 'Register',  new_user_registration_path
-    
-    - if notice
-      %p.alert.alert-success= notice
-    - if alert
-      %p.alert.alert-danger= alert
-    = yield
+            %a.sidenav-trigger.show-on-large{"data-target" => "slide-out"}
+              %i.material-icons menu
+          .brand-logo
+            = link_to '/Freela', root_path
+          %ul#nav-mobile.right.hide-on-med-and-down
+            - if user_signed_in?
+              = link_to destroy_user_session_path, method: :delete do
+                %i.material-icons exit_to_app
+            - else
+              %li
+                = link_to 'Login', new_user_session_path
+              %li
+                = link_to 'Register',  new_user_registration_path
+    .container
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+      = yield
+
+- if user_signed_in?
+  %ul#slide-out.sidenav
+    %li
+      .user-view
+        .background
+          %img{:src => "https://images.adsttc.com/media/images/5bae/4d43/f197/cc3a/7d00/0009/newsletter/shutterstock_113088436.jpg?1538149679"}/
+        = link_to user_path(current_user) do
+          %img.circle{:src => "https://pps.whatsapp.net/v/t61.24694-24/121778061_3624248424264836_8377894582499985419_n.jpg?ccb=11-4&oh=a73c448110fca0249d27c279a3240496&oe=60A72E87"}/
+          %span.white-text.name
+            = current_user.username
+          %span.white-text.email
+            = current_user.email
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons attach_money
+        Budget Requests
+        %span.new.badge 4
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons people
+        Clients
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons money_off
+        Expenses
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons show_chart
+        Statistics
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons payment
+        Invoices
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons content_paste
+        Reports
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons markunread
+        Invite Your Clients
+    %li
+      .divider
+    %li
+      %a.subheader Free Account
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons today
+        Manage Subscription
+

@@ -1,11 +1,11 @@
-= simple_form_for [:project, @announcement] do |f|
+= simple_form_for [:project, @ticket] do |f|
 
   .row
     .col.s6
       = f.input :title, label: false
   .row
     .col.s6
-      = f.input :body
+      = f.input :content
 
   = f.hidden_field :project_id, value: params[:project_id]
   = f.button :submit

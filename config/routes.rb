@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do  
-    get '/users/sign_out' => 'devise/sessions#destroy'     
+    get '/users/sign_out' => 'devise/sessions#destroy'
+    resources :users, only: [:show, :edit, :update]
   end
   authenticated :user do
     root "dashboard#show", as: :authenticated_root
@@ -11,7 +12,9 @@ Rails.application.routes.draw do
   resources :projects do
     resources :announcements, module: "projects"
     resources :tasks, module: "projects"
-    resources :tickets, module: "projects"
+    resources :tickets, module: "projects" do
+      post "archive" => "tickets#archive"
+    end
   end
   root "homepage#index"
 end

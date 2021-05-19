@@ -15,6 +15,7 @@ class Ability
     can :manage, Announcement, project: { freelancer: { id: user.id } }
     can :create, Announcement
     can :manage, Ticket, project: { freelancer: { id: user.id } }
+    cannot :destroy, Ticket
     can :manage, Task, project: { freelancer: { id: user.id } }
   end
 

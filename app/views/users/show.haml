@@ -1,0 +1,9 @@
+= link_to edit_user_path(current_user), method: :get do
+  %i.material-icons edit
+%h2
+  = "#{current_user.username} profile"
+%br
+= current_user.summary
+%br
+%br
+= current_user.email
