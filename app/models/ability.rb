@@ -23,7 +23,6 @@ class Ability
     cannot :manage, Project
     cannot :manage, Announcement
     cannot :manage, Task
-    cannot :manage, Ticket
     can :create, Ticket
     can :read, Project, client_id: user.id
     can :read, Announcement, project: { client: { id: user.id } }
