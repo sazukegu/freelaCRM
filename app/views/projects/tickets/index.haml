@@ -1,16 +1,38 @@
-- if current_user.has_role? :client
-  = link_to new_project_ticket_path do
-    %i.material-icons add
-- @tickets&.each do |ticket|
-  = link_to project_ticket_path(project, ticket) do
-    .row
-      .col.s6.m5
-        .card-panel.teal
-          %span.white-text
+%table.highlight
+  %thead
+    %tr
+      %th
+        = Ticket.human_attribute_name(:title)
+      %th
+        = Ticket.human_attribute_name(:id)
+      %th
+        = Ticket.human_attribute_name(:created_at)
+      %th
+        = 'Status'
+      %th
+        - if current_user.has_role? :client
+          = link_to new_project_ticket_path do
+            %i.material-icons add
+        
+  %tbody
+    - @tickets&.each do |ticket|
+      %tr
+        %td
+          = link_to project_ticket_path(project, ticket) do
             = ticket.title
-          %br
-          %span.white-text
-            = ticket.content
-      .col.s1
-        = link_to project_ticket_archive_path(project, ticket), data: { confirm: "Once archived a ticket cannot be reopened, you sure?" }, method: :post do
-          %i.material-icons archive
+        %td
+          = ticket.id
+        %td
+          = ticket.created_at
+        %td
+          - if ticket.archived?
+            .chip.grey.lighten-1
+              Archived
+          - else
+            .chip.green.lighten-1
+              Open
+        %td
+          - unless ticket.archived?
+            = link_to project_ticket_archive_path(project, ticket), data: { confirm: "Once archived a ticket cannot be reopened, you sure?" }, method: :post do
+              %i.material-icons archive
+          
