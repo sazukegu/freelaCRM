@@ -4,7 +4,7 @@ module Projects
     expose(:project)
 
     def index
-      @tickets = project&.tickets&.where(archived: false)
+      @tickets = project&.tickets&.order(created_at: :desc)
     end
 
     def new

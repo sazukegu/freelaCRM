@@ -1,3 +1,20 @@
+- @ticket.comments.each do |comment|
+  .col.s8.comment
+    .row.comment-author
+      .col.s8
+        .col.s1
+          %img.responsive-img.circle{:src => "https://media-exp3.licdn.com/dms/image/C4D03AQE_L6SPbBsW7w/profile-displayphoto-shrink_200_200/0/1604674801127?e=1628726400&v=beta&t=fIZWZvsB0skh1ZVBnz4NKTS-GUNokJ4Hj2puVFmNkIo"}/
+        .col.s7
+          = comment.user.email
+          %br
+          .grey-text
+            = days_ago(comment.created_at)
+    .row
+      .input-field.col.s8
+        = comment.body
+
 = simple_form_for([project, commentable, comment]) do |f|
-  = f.input :body
-  = f.submit
+  .input-field
+    = f.text_area :body, class: 'materialize-textarea'
+    = f.label 'Comment'
+  = f.button :submit, class: 'confirm'

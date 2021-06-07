@@ -1,14 +1,19 @@
-TICKETS SHOW
+.ticket-history-container
+  .row.comment-title
+    .col.s8
+      %h5
+        = @ticket.title
+  .row.comment-author
+    .col.s8
+      .col.s1
+        %img.responsive-img.circle{:src => "https://media-exp1.licdn.com/dms/image/C4D03AQGGY775DU38Nw/profile-displayphoto-shrink_200_200/0/1611971208266?e=1626912000&v=beta&t=S9gkF328p7-HVgJW5yOpZ7Z_40hBfQJN6h8uaXAzev8"}/
+      .col.s7
+        = @ticket.project.client.email
+        %br
+        .grey-text
+          = days_ago(@ticket.created_at)
+  .row.comment
+    .col.s8
+      = @ticket.content
 
-= @ticket.title
-%br
-= @ticket.content
-%br
-= render partial: "comments/form", locals: { comment: Comment.new, commentable: @ticket }
-
-- @ticket.comments.each do |comment|
-  = comment.user.email
-  %br
-  = comment.body
-  %br
-  %br
+  = render partial: "comments/form", locals: { comment: Comment.new, commentable: @ticket }
