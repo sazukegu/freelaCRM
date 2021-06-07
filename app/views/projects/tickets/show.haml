@@ -1,0 +1,14 @@
+TICKETS SHOW
+
+= @ticket.title
+%br
+= @ticket.content
+%br
+= render partial: "comments/form", locals: { comment: Comment.new, commentable: @ticket }
+
+- @ticket.comments.each do |comment|
+  = comment.user.email
+  %br
+  = comment.body
+  %br
+  %br

@@ -2,11 +2,15 @@
   = link_to new_project_ticket_path do
     %i.material-icons add
 - @tickets&.each do |ticket|
-  .row
-    .col.s6.m5
-      .card-panel.teal
-        %span.white-text
-          = ticket.content
-    .col.s1
-      = link_to project_ticket_archive_path(project, ticket), data: { confirm: "Once archived a ticket cannot be reopened, you sure?" }, method: :post do
-        %i.material-icons archive
+  = link_to project_ticket_path(project, ticket) do
+    .row
+      .col.s6.m5
+        .card-panel.teal
+          %span.white-text
+            = ticket.title
+          %br
+          %span.white-text
+            = ticket.content
+      .col.s1
+        = link_to project_ticket_archive_path(project, ticket), data: { confirm: "Once archived a ticket cannot be reopened, you sure?" }, method: :post do
+          %i.material-icons archive

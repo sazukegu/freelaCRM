@@ -4,7 +4,6 @@ module Projects
     expose(:project)
 
     def index
-      project = Project.find(params[:project_id])
       @tickets = project&.tickets&.where(archived: false)
     end
 

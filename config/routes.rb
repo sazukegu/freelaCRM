@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :tasks, module: "projects"
     resources :tickets, module: "projects" do
       post "archive" => "tickets#archive"
+      resources :comments, module: "tickets"
     end
   end
   root "homepage#index"
