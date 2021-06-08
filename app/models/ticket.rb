@@ -6,5 +6,6 @@ class Ticket < ApplicationRecord
 
   def archive
     self.archived = true
+    save!
   end
 end

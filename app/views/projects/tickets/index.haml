@@ -23,7 +23,7 @@
         %td
           = ticket.id
         %td
-          = ticket.created_at
+          = humanized_date(ticket.created_at)
         %td
           - if ticket.archived?
             .chip.grey.lighten-1
