@@ -1,0 +1,27 @@
+.card-panel.grey.lighten-4
+  %dl
+    %dt
+      Created at
+    %dd
+      = humanized_date(@ticket.created_at)
+  .divider
+  %dl
+    %dt
+      Last activity
+    %dd
+      = last_activity(@ticket)
+    %dl
+      %dt
+        ID
+      %dd
+        = @ticket.id
+    %dl
+      %dt
+        Status
+      %dd
+        - if @ticket.archived?
+          .chip.grey.lighten-1
+            Archived
+        - else
+          .chip.green.lighten-1
+            Open
