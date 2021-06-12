@@ -1,6 +1,6 @@
 .row.comment-author
   .col.s1
-    %img.comment-avatar.circle{:src => "https://media-exp1.licdn.com/dms/image/C4D03AQGGY775DU38Nw/profile-displayphoto-shrink_200_200/0/1611971208266?e=1626912000&v=beta&t=S9gkF328p7-HVgJW5yOpZ7Z_40hBfQJN6h8uaXAzev8"}/
+    = image_tag user_avatar(@ticket.project.client), class: "circle comment-avatar responsive-img"
   .col.s11
     = @ticket.project.client.email
     %br
