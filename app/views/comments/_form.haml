@@ -1,7 +1,7 @@
 - @ticket.comments.each do |comment|
   .row
     .col.s1
-      %img.comment-avatar.responsive-img.circle{:src => "https://media-exp3.licdn.com/dms/image/C4D03AQE_L6SPbBsW7w/profile-displayphoto-shrink_200_200/0/1604674801127?e=1628726400&v=beta&t=fIZWZvsB0skh1ZVBnz4NKTS-GUNokJ4Hj2puVFmNkIo"}/
+      = image_tag user_avatar(comment.user, 40), class: "circle comment-avatar responsive-img"
     .col.s11
       = comment.user.email
       %br

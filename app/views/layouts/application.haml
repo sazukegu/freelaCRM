@@ -39,8 +39,8 @@
       .user-view
         .background
           %img{:src => "https://maisonave.com.br/wp-content/uploads/2019/04/Jurere-Internacional.jpg"}/
-        = link_to user_path(current_user) do
-          %img.circle{:src => "https://media-exp1.licdn.com/dms/image/C4D03AQGGY775DU38Nw/profile-displayphoto-shrink_200_200/0/1611971208266?e=1626912000&v=beta&t=S9gkF328p7-HVgJW5yOpZ7Z_40hBfQJN6h8uaXAzev8"}/
+        = link_to edit_user_registration_path(current_user) do
+          = image_tag user_avatar(current_user), class: "circle responsive-img"
           %span.white-text.name
             = current_user.username
           %span.white-text.email
