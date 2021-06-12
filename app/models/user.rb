@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :quotations, dependent: :destroy
   has_many :projects_as_freelancer, class_name: "Project", foreign_key: "freelancer_id"
   has_many :projects_as_client, class_name: "Project", foreign_key: "client_id"
+  has_one_attached :avatar
 end
